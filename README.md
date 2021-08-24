@@ -40,6 +40,7 @@ DROP COLUMN absences;
 SELECT * FROM hrdata;
 ```
 Output:
+
 ![png](img/sql/table.png)
 
 
@@ -51,6 +52,7 @@ GROUP BY position
 ORDER BY count desc;
 ```
 Output:
+
 ![png](img/sql/num_position.png)
 
 Data visualization:
@@ -66,6 +68,7 @@ GROUP BY department
 ORDER BY avg(salary) desc;
 ```
 Output:
+
 ![png](img/sql/department_avg_salary.png)
 
 Data visualization:
@@ -83,6 +86,7 @@ SUM(CASE WHEN maritaldesc = 'Separated' THEN 1 ELSE 0 END) as Seperated
 FROM hrdata;
 ```
 Output:
+
 ![png](img/sql/transpose.png)
 
 Data visualization:
@@ -99,6 +103,7 @@ HAVING count(*) >= 2
 ORDER BY department, sex desc;
 ```
 Output:
+
 ![png](img/sql/sex_salary.png)
 
 Data visualization:
@@ -117,6 +122,7 @@ SELECT * FROM
 WHERE rank >= 1 AND rank <= 3;
 ```
 Output:
+
 ![png](img/sql/partition_rank.png)
 
 
@@ -129,4 +135,5 @@ SUM(salary) OVER (ORDER BY dateofhire RANGE BETWEEN UNBOUNDED PRECEDING
 FROM hrdata;
 ```
 Output:
+
 ![png](img/sql/running_total.png)
