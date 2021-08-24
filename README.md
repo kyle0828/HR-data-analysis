@@ -43,6 +43,7 @@ Output:
 
 ![png](img/sql/table.png)
 
+---
 
 ### Get the total number of employees in each position, and indicate the higher count first.
 
@@ -58,6 +59,7 @@ Output:
 Data visualization:
 ![png](img/tableau/num_position.png)
 
+---
 
 ### Find out the average salary of each department, and also show the total number of employees in each department.
 
@@ -74,6 +76,7 @@ Output:
 Data visualization:
 ![png](img/tableau/department_avg_salary.png)
 
+---
 
 ### Transpose the data to turn each of the marital statuses into an independent column
 
@@ -92,6 +95,7 @@ Output:
 Data visualization:
 ![png](img/tableau/transpose.png)
 
+---
 
 ### Find out the average salary of each gender in each of the department which has more than 2 employees
 
@@ -109,6 +113,7 @@ Output:
 Data visualization:
 ![png](img/tableau/sex_salary.png)
 
+---
 
 ### Show only the top 3 highest paid employees in each department
 
@@ -125,6 +130,7 @@ Output:
 
 ![png](img/sql/partition_rank.png)
 
+---
 
 ### Get the running total of salaries
 
