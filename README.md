@@ -2,8 +2,9 @@
 
 #### Author: Kyle Chen - 陳證皓
 
-## Data Source: [Kaggle - Human Resources Data Set](https://www.kaggle.com/rhuebner/human-resources-data-set)
-I separated the **employee name** column into FirstName and LastName using (Text to columns in) excel before imported the dataset into SQL.
+#### Data Source: [Kaggle - Human Resources Data Set](https://www.kaggle.com/rhuebner/human-resources-data-set)
+I separated the **employee name** column into FirstName and LastName using ***Text to columns*** in excel before imported the dataset into SQL.
+
 
 ### Create table
 ```sql
@@ -27,6 +28,7 @@ create table hrdata (
 );
 ```
 
+
 ### Drop Column
 ```sql
 ALTER TABLE hrdata
@@ -37,21 +39,25 @@ DROP COLUMN absences;
 ```sql
 SELECT * FROM hrdata;
 ```
-![png](img/table.png)
+Output:
+![png](img/sql/table.png)
 
-### Get the total number of employees in each position,\
-and indicate the higher count first.
+
+### Get the total number of employees in each position, and indicate the higher count first.
 
 ```sql
 SELECT position, count(*) from hrdata
 GROUP BY position
 ORDER BY count desc;
 ```
+Output:
 ![png](img/sql/num_position.png)
+
+Data visualization:
 ![png](img/tableau/num_position.png)
 
-### Find out the average salary of each department,\
-and also show the total number of employees in each department.
+
+### Find out the average salary of each department, and also show the total number of employees in each department.
 
 ```sql
 SELECT department, round(avg(salary)) avg_salary, count(*)
@@ -59,8 +65,12 @@ FROM hrdata
 GROUP BY department
 ORDER BY avg(salary) desc;
 ```
+Output:
 ![png](img/sql/department_avg_salary.png)
+
+Data visualization:
 ![png](img/tableau/department_avg_salary.png)
+
 
 ### Transpose the data to turn each of the marital statuses into an independent column
 
@@ -72,8 +82,12 @@ SUM(CASE WHEN maritaldesc = 'Widowed' THEN 1 ELSE 0 END) as Widowed,
 SUM(CASE WHEN maritaldesc = 'Separated' THEN 1 ELSE 0 END) as Seperated
 FROM hrdata;
 ```
+Output:
 ![png](img/sql/transpose.png)
+
+Data visualization:
 ![png](img/tableau/transpose.png)
+
 
 ### Find out the average salary of each gender in each of the department which has more than 2 employees
 
@@ -84,8 +98,12 @@ GROUP BY sex, department
 HAVING count(*) >= 2
 ORDER BY department, sex desc;
 ```
+Output:
 ![png](img/sql/sex_salary.png)
+
+Data visualization:
 ![png](img/tableau/sex_salary.png)
+
 
 ### Show only the top 3 highest paid employees in each department
 
@@ -98,7 +116,9 @@ SELECT * FROM
 	)a
 WHERE rank >= 1 AND rank <= 3;
 ```
+Output:
 ![png](img/sql/partition_rank.png)
+
 
 ### Get the running total of salaries
 
@@ -108,4 +128,5 @@ SUM(salary) OVER (ORDER BY dateofhire RANGE BETWEEN UNBOUNDED PRECEDING
 				          AND CURRENT ROW) as running_total_of_salaries
 FROM hrdata;
 ```
+Output:
 ![png](img/sql/running_total.png)
